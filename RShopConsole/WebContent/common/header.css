@@ -1,0 +1,14 @@
+.header {
+	background-color: #ADB96E;
+}
+.menu li{
+	  float:left ;
+	  margin:5px;
+	  width:50px;
+	  text-align:center;
+	  /*
+	  border-left-style:solid;
+	  border-left-width:thin;
+	  border-right-style:solid;
+	  border-right-width:thin;*/
+  }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="rtf.rshop.po">
+	<class name="RProType" table="rprotype" lazy="false">
+		<id name="id" column="protype_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="protype_name" not-null="true" ></property>
+		<property name="code" column="protype_code" not-null="true" unique="true" ></property>
+		<many-to-one name="parent" cascade="all" class="RProType" column="protype_parentid"></many-to-one>
+		<property name="describe" column="protype_describe" ></property>
+		 
+	</class>
+
+</hibernate-mapping>

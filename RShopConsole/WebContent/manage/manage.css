@@ -1,0 +1,58 @@
+#addAdvertisementFrame{
+	width: 1000px;
+	
+}
+#workframe{
+	width: 1000px;	
+}
+
+
+body,ul,h1,h2,h3,h4,h5,h6{
+	padding:0px;
+	margin:0px;	
+}
+table{
+	text-align:center;
+}
+body{
+	background-color:#999 ;
+}
+
+.container{
+	width:80% ;
+	max-width:1000px ;
+	margin: 0 auto ;
+	background-color:#FFF ;
+}
+
+.menu{
+	list-style:none ;
+}
+.menu li{
+	display:block;
+	float:left ;
+	width:100px ;
+	background-color:#CCC ;
+	margin:0 2px ;
+	text-align:center;
+	cursor:pointer;
+}
+
+.menu li ul{
+	position:absolute;
+	list-style:none ;
+	padding-left:0px ;
+	display:none;
+	
+}
+
+.menu li ul li{
+	float:none;
+	text-align:center ;
+	padding-left:0px;
+	margin-left:0px ;	
+}
+.workframe{
+	background-color:#949494;
+}
+

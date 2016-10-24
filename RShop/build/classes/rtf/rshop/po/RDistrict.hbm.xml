@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="rtf.rshop.po">
+	<class name="RDistrict" table="rdistrict" lazy="false">
+		<id name="id" column="district_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="district_name"></property>
+		<property name="code" column="district_code"></property>
+		<many-to-one name="city" class="RCity" column="city_id" lazy="false" cascade="all"></many-to-one>
+	</class>
+ </hibernate-mapping>

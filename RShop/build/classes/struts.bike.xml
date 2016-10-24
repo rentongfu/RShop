@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.ognl.allowStaticMethodAccess" value="false" />
+    <package name="default" namespace="/" extends="struts-default">
+    	
+		<!-- 这里配置action -->
+		<default-action-ref name="default"></default-action-ref>
+		
+		<action name="default" >
+			<result>index.jsp</result>
+		</action>
+		
+		<action name="ManagerLoginLogic" class="rtf.rshop.logic.manager.ManagerLoginLogic" method="execute">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">result</param>
+			</result>
+		</action>
+		<action name="AddManagerLogic" class="rtf.rshop.logic.manager.AddManagerLogic">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">result</param>
+			</result>
+		</action>
+		<action name="AddProTypeLogic" class="rtf.rshop.logic.product.AddProTypeLogic">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">result</param>
+			</result>
+		</action>
+		<action name="AddProductLogic" class="rtf.rshop.logic.product.AddProductLogic">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">result</param>
+			</result>
+		</action>
+		
+		<action name="ReceiveProductImageLogic" class="rtf.rshop.logic.product.ReceiveProductImageLogic" >
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">result</param>
+			</result>
+		</action>
+		<action name="ReceiveAdvertisementProductLogic" class="rtf.rshop.logic.advertisement.ReceiveAdvertisementProductLogic" >
+			<result name="success" type="redirectAction">
+				<param name="actionName">AdvertisementProductUploadFrame</param>
+				<param name="namespace">/</param>
+			</result>
+		</action>
+		
+		
+		<action name="AddAdvertisementLoigc" class="rtf.rshop.logic.advertisement.AddAdvertisementLogic">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">result</param>
+			</result>
+		</action>
+		
+		<action name="UserRegisterLogic" class="rtf.rshop.logic.user.UserRegisterLogic">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">result</param>
+			</result>
+		</action>
+		
+		<action name="UserLoginLogic" class="rtf.rshop.logic.user.UserLoginLogic">
+			<result name="success" type="stream" >
+				<param name="contentType">text/html</param>
+				<param name="inputName">result</param>
+			</result>
+		</action>
+		
+		<action name="UserLogoutLogic" class="rtf.rshop.logic.user.UserLogoutLogic">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">result</param>
+			</result>
+		</action>
+		
+		<action name="ManageLoginView" >
+			<result name="success">/manage/manager_login.jsp</result>
+		</action>
+
+		<action name="ManageView" class="rtf.rshop.view.manage.ManageView" method="execute">
+			<result name="success">/manage/manage.jsp</result>
+			<result name="error" type="redirectAction" >
+				<param name="actionName">ManageLoginView</param>
+				<param name="namespace">/</param>
+			</result>
+		</action>
+		
+		<action name="ManagerAddFrame">
+			<result>/manage/manager_add_frame.jsp</result>
+		</action>
+
+		<action name="ManagerManageFrame" class="rtf.rshop.view.manage.ManagerManageFrame">
+			<result>/manage/manager_manage_frame.jsp</result>
+		</action>
+
+		<action name="UserAddFrame">
+			<result>/manage/user_add_frame.jsp</result>
+		</action>
+
+		<action name="UserManageFrame" class="rtf.rshop.view.manage.UserManageFrame">
+			<result>/manage/user_manage_frame.jsp</result>
+		</action>
+
+		<action name="ProTypeAddFrame">
+			<result name="success">/manage/protype_add_frame.jsp</result>
+		</action>
+
+		<action name="ProTypeManageFrame" class="rtf.rshop.view.manage.ProTypeManageFrame">
+			<result name="success">/manage/protype_manage_frame.jsp</result>
+		</action>
+
+		<action name="ProductAddFrame" class="rtf.rshop.view.manage.ProductAddFrame">
+			<result name="success">/manage/product_add_frame.jsp</result>
+		</action>
+
+		<action name="ProductImageUploadFrame" class="rtf.rshop.view.manage.ProductImageUploadFrame">
+			<param name="baseTmpDir">/RShop/tmp/image/product/</param>
+			<result name="success">/manage/product_image_upload_frame.jsp</result>
+		</action>
+
+		<action name="ProductManageFrame" class="rtf.rshop.view.manage.ProductManageFrame">
+			<result>/manage/product_manage_frame.jsp</result>
+		</action>
+
+		<action name="AdvertisementAddFrame" class="rtf.rshop.view.manage.AdvertisementAddFrame">
+			<result>/manage/advertisement_add_frame.jsp</result>
+		</action>
+		<action name="AdvertisementManageFrame">
+			<result>/manage/advertisement_manage_frame.jsp</result>
+		</action>
+		<action name="AdvertisementProductUploadFrame" class="rtf.rshop.view.manage.AdvertisementProductUploadFrame">
+			<param name="baseTmpImageDir" >/RShop/tmp/image/advertisement/AddAdvertisement/</param>
+			<result>/manage/advertisement_product_upload_frame.jsp</result>
+		</action>
+		
+		<action name="ProductView" class="rtf.rshop.view.ProductView">
+			<result>/product/product_info.jsp</result>
+		</action>
+		
+		<action name="LoginView">
+			<result>/login/login.jsp</result>
+		</action>
+		
+		<action name="RegisterView">
+			<result>/register/register.jsp</result>
+		</action>
+		
+		<action name="IndexView" >
+			<result>/home/index.jsp</result>
+		</action>
+		
+		<action name="Test" class="Test">
+		</action>
+
+    </package>
+    <!-- Add packages here -->
+	<package name="logic" namespace="/" extends="struts-default">
+	
+	</package>
+
+</struts>

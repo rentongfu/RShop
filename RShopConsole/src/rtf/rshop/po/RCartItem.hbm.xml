@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="rtf.rshop.po">
+	<class name="RCartItem" table="rcart_item" lazy="false">
+		<id name="id" column="cart_item_id">
+			<generator class="native">
+			</generator>
+		</id>
+		<many-to-one name="cart" column="cart_id"  cascade="all"  lazy="false" class="RCart"></many-to-one>
+		
+		
+		<many-to-one name="product" class="RProduct" column="product_id"></many-to-one>
+		<property name="quantity"></property>
+		<property name="create_time"></property>
+	</class>
+ </hibernate-mapping>

@@ -1,0 +1,8 @@
+
+用户登录成功后写一个RUser对象到session中，键值为login_user
+
+	
+前台入口地址
+	localhost:8080/RShop/
+后台入口地址
+	localhost:8080/RShopConsole/ManageView

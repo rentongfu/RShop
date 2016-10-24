@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 指定连接数据库所用的驱动 -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- 指定要连接的数据库的url -->
+		<property name="connection.url">jdbc:mysql://localhost/rshop</property>
+		<!-- 指定连接数据库所用的用户名 -->
+		<property name="connection.username" >root</property>
+		<!-- 指定连接数据库所用的密码 -->
+		<property name="connection.password">rentongfu</property>
+		<!-- 指定连接池的最大连接数 -->
+		<property name="hibernate.c3p0.max_size">20</property>
+		<!-- 指定连接池的最小连接池 -->
+		<property name="hibernate.c3p0.min_size">1</property>
+		<!-- 指定连接池里连接的超时时长 -->
+		<property name="hibernate.c3p0.timeout">5000</property>
+		<!-- 指定连接池里最大缓存多少个statement对象 -->
+		<property name="hibernate.c3p0.max_statements">100</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+		<property name="hibernate.c3p0.acquire_increment">2</property>
+		<property name="hibernate.c3p0.validate">true</property>
+		<!-- 指定数据库方言 -->
+		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<!-- 指定是否根据需要定义数据库表 -->
+		<property name="hbm2ddl.auto">update</property>
+		<!-- 设定显示执行的sql语句 -->
+		<property name="show_sql">true</property>
+		<!-- 将sql脚本进行格式化后再输出 -->
+		<property name="hibernate.format_sql">true</property>
+		<!-- 映射持久化类 -->
+		<mapping resource="rtf/rshop/po/RUser.hbm.xml" />
+		<mapping resource="rtf/rshop/po/RManager.hbm.xml" />
+		<mapping resource="rtf/rshop/po/RProType.hbm.xml" />
+		<mapping resource="rtf/rshop/po/RProduct.hbm.xml" />
+		<mapping resource="rtf/rshop/po/RProductParameter.hbm.xml" />
+		<mapping resource="rtf/rshop/po/RAdvertisement.hbm.xml"/>
+		<mapping resource="rtf/rshop/po/RAdvertisementItem.hbm.xml" />
+		<mapping resource="rtf/rshop/po/RCart.hbm.xml" />
+		<mapping resource="rtf/rshop/po/RCartItem.hbm.xml" />
+		<mapping resource="rtf/rshop/po/RProvince.hbm.xml" />
+		<mapping resource="rtf/rshop/po/RCity.hbm.xml"/>
+		<mapping resource="rtf/rshop/po/RDistrict.hbm.xml" />
+		<mapping resource="rtf/rshop/po/RAddressInfo.hbm.xml" />
+		<mapping resource="rtf/rshop/po/ROrder.hbm.xml"/>
+		<mapping resource="rtf/rshop/po/ROrderItem.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

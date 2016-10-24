@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="rtf.rshop.po">
+	<class name="ROrder" table="rorder" lazy="false">
+		<id name="id" column="order_id">
+			<generator class="native"></generator>
+		</id>
+		<many-to-one name="user" class="RUser" column="user_id"></many-to-one>
+		<many-to-one name="address" class="RAddressInfo" column="address_id"></many-to-one>
+		<property name="money" column="total_money"></property>
+		<list name="orderitems" inverse="true" cascade="all" lazy="false">
+			<key column="order_id" not-null="true"></key>
+			<index column="items_index"></index>
+			<one-to-many class="ROrderItem"/>
+		</list>
+		<property name="status" column="order_status" ></property>
+		<property name="create_time" column="create_time" ></property>
+	</class>
+ </hibernate-mapping>
