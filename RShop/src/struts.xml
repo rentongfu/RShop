@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.ognl.allowStaticMethodAccess" value="false" />
+    <package name="default" namespace="/" extends="struts-default">
+    	
+		<!-- 这里配置action -->
+		<default-action-ref name="default"></default-action-ref>
+		<global-results>
+			<result name="error">/error/error.jsp</result>
+		</global-results>
+		
+		<action name="default" >
+			<result>index.jsp</result>
+		</action>
+		
+		<action name="ProductListView" class="rtf.rshop.view.ProductListView">
+			<result>/product/product_list.jsp</result>
+		</action>
+				
+		<action name="ProductView" class="rtf.rshop.view.ProductView">
+			<result>/product/product_info.jsp</result>
+		</action>
+		
+		<action name="LoginView">
+			<result>/login/login.jsp</result>
+		</action>
+		
+		<action name="RegisterView">
+			<result>/register/register.jsp</result>
+		</action>
+		
+		<action name="IndexView" class="rtf.rshop.view.IndexView">
+			<result>/index/index.jsp</result>
+		</action>
+		
+		<action name="CartView" class="rtf.rshop.view.CartView">
+			<result>/cart/cart.jsp</result>
+			<result name="error" type="redirectAction">LoginView</result>
+		</action>
+		
+		<action name="HomeView">
+			<result>/home/home.jsp</result>
+		</action>
+		
+		<action name="AddressListFrame" class="rtf.rshop.view.AddressListFrame">
+			<result>/home/address_list_frame.jsp</result>
+		</action>
+		
+		<action name="AddressAddFrame" class="rtf.rshop.view.AddressAddFrame">
+			<result>/home/address_add_frame.jsp</result>
+		</action>
+		<action name="AddressUpdateFrame" class="rtf.rshop.view.AddressUpdateFrame">
+			<result>/home/address_update_frame.jsp</result>
+		</action>
+		
+		<action name="OrderSubmitView" class="rtf.rshop.view.OrderSubmitView">
+			<result>/order/order_submit.jsp</result>
+		</action>
+		
+		<action name="OrderListFrame" class="rtf.rshop.view.OrderListFrame">
+			<result>/order/order_list_frame.jsp</result>
+		</action>
+		<action name="OrderView" class="rtf.rshop.view.OrderView">
+			<result>/order/order.jsp</result>
+		</action>
+
+    </package>
+
+	
+	<package name="logic" namespace="/" extends="json-default">
+		<global-results>
+			<result name="success" type="json">
+				<param name="root">responseProperties</param>
+			</result>
+		</global-results>
+	
+		<action name="AddProductToCartLogic" class="rtf.rshop.logic.cart.AddProductToCartLogic"></action>
+		
+		<action name="AddAddressInfoLogic" class="rtf.rshop.logic.user.AddAddressInfoLogic"></action>
+		
+		<action name="UserLoginLogic" class="rtf.rshop.logic.user.UserLoginLogic"></action>
+		
+		<action name="UserLogoutLogic" class="rtf.rshop.logic.user.UserLogoutLogic"></action>
+		
+		<action name="UserRegisterLogic" class="rtf.rshop.logic.user.UserRegisterLogic"></action>
+		
+		<action name="OrderSubmitLogic" class="rtf.rshop.logic.order.OrderSubmitLogic"></action>
+		
+		<action name="IncreaseQuantityOfCartItemLogic" class="rtf.rshop.logic.cart.IncreaseQuantityOfCartItemLogic"></action>
+		
+		<action name="DecreaseQuantityOfCartItemLogic" class="rtf.rshop.logic.cart.DecreaseQuantityOfCartItemLogic"></action>
+		
+		<action name="RemoveCartItemLogic" class="rtf.rshop.logic.cart.RemoveCartItemLogic"></action>
+		
+		<action name="OrderCancelLogic" class="rtf.rshop.logic.order.OrderCancelLogic" ></action>
+		
+		<action name="GetProvinceListLogic" class="rtf.rshop.logic.other.GetProvinceListLogic"></action>
+		<action name="GetCityListLogic" class="rtf.rshop.logic.other.GetCityListLogic"></action>
+		<action name="GetDistrictListLogic" class="rtf.rshop.logic.other.GetDistrictListLogic"></action>
+		
+		<action name="DeleteAddressInfoLogic" class="rtf.rshop.logic.user.DeleteAddressInfoLogic"></action>
+		<action name="UpdateAddressInfoLogic" class="rtf.rshop.logic.user.UpdateAddressInfoLogic"></action>
+		
+	</package>
+
+</struts>

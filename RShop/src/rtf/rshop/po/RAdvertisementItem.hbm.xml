@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="rtf.rshop.po">
+	<class name="RAdvertisementItem" table="radvertisement_item" lazy="false">
+		<id name="id" column="advertisement_item_id">
+			<generator class="native"></generator>
+		</id>
+	
+		<many-to-one name="product" class="RProduct" column="product"></many-to-one>
+		<property name="image" column="image"></property>
+		
+		<many-to-one name="advertisement" lazy="false" cascade="all" column="advertisement_id" class="RAdvertisement"></many-to-one>
+	</class>
+
+</hibernate-mapping>

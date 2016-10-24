@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="rtf.rshop.po">
+	<class name="RAddressInfo" table="raddressinfo" lazy="false">
+		<id name="id" column="info_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="receiver_name" column="receiver_name" not-null="true" ></property>
+		<property name="describe" column="[describe]" ></property>
+		<property name="phone_num" column="phone_num" ></property>
+		<property name="isdelete" column="isdelete" ></property>
+		<many-to-one name="user" column="user_id" class="RUser" lazy="false" cascade="all"></many-to-one>
+		<many-to-one name="district" column="district_id" class="RDistrict" lazy="false" cascade="all"></many-to-one>
+	
+	</class>
+ </hibernate-mapping>

@@ -1,0 +1,14 @@
+
+用户登录成功后写一个RUser对象到session中，键值为login_user
+
+上传产品图片在用户未提交是图片的保存路径为：
+	/tmp/image/product/sessionID/
+提交后的保存路径为：
+	/image/product/productCode/
+上传广告图片在用户未提交时图片的保存路径为：
+	/tmp/image/advertisement/AddAdvertisement/sessionID/路径
+提交后的保存路径为：
+	/image/advertisement/advertisementCode/
+	
+前台入口地址
+	localhost:8080/RShop/

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="rtf.rshop.po">
+	<class name="RProduct" table="rproduct" lazy="false">
+		<id name="id" column="product_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="code" column="product_code" unique="true" not-null="true"></property>
+		<property name="name" column="product_name" not-null="true"></property>
+		<property name="price" column="product_price" not-null="true" ></property>
+		<property name="images" column="product_images"></property>
+		<many-to-one name="type" cascade="all" class="RProType" column="product_typeid"></many-to-one>
+		<property name="describe" column="product_describe" not-null="true" ></property>
+		<property name="imagedescribe" column="product_imagedescribe"></property>
+		
+		<list name="parameters" inverse="true" lazy="false">
+			<key column="product_id" not-null="true"></key>
+			<list-index column="item_index"></list-index>
+			<one-to-many class="RProductParameter"  />
+		</list>
+		
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="rtf.rshop.po">
+	<class name="RCart" table="rcart" lazy="false">
+		<id name="id" column="cart_id">
+			<generator class="foreign">
+				<param name="property">user</param>
+			</generator>
+		</id>
+		
+		<one-to-one name="user" class="RUser" lazy="false"></one-to-one>
+		
+		<list name="items" inverse="true"  cascade="all" lazy="false" >
+			<key column="cart_id" not-null="true"></key>
+			<list-index column="item_index"></list-index>
+			<one-to-many class="RCartItem"  />
+		</list>
+	</class>
+ </hibernate-mapping>
